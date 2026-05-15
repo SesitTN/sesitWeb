@@ -1,0 +1,311 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 18% 97%;
+    --foreground: 222 40% 9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 40% 9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 40% 9%;
+
+    --primary: 161 78% 26%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 16% 93%;
+    --secondary-foreground: 222 40% 9%;
+
+    --muted: 220 16% 93%;
+    --muted-foreground: 215 14% 40%;
+
+    --accent: 220 91% 52%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 14% 87%;
+    --input: 220 14% 87%;
+    --ring: 161 78% 26%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 220 14% 94%;
+    --sidebar-foreground: 222 40% 9%;
+    --sidebar-primary: 161 78% 26%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 92%;
+    --sidebar-accent-foreground: 222 40% 9%;
+    --sidebar-border: 220 14% 84%;
+    --sidebar-ring: 161 78% 26%;
+
+    /* ── SESIT Design Tokens ─────────────────────────────── */
+    --sesit-blue: 220 91% 52%;
+    --sesit-green: 161 78% 26%;
+    --sesit-cyan: 199 80% 44%;
+    --sesit-dark: 222 40% 9%;
+
+    /* Gradients */
+    --gradient-accent: linear-gradient(
+      135deg,
+      hsl(161 78% 26%) 0%,
+      hsl(199 80% 44%) 50%,
+      hsl(220 91% 52%) 100%
+    );
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(218 20% 97%));
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(220 18% 97%) 0%,
+      hsl(218 20% 94%) 50%,
+      hsl(220 18% 97%) 100%
+    );
+
+    /* Shadows */
+    --shadow-card: 0 1px 2px hsl(220 20% 15% / 0.04),
+      0 4px 16px hsl(220 20% 15% / 0.06),
+      0 0 0 1px hsl(220 16% 88% / 0.6);
+    --shadow-card-hover: 0 4px 8px hsl(220 20% 15% / 0.06),
+      0 12px 32px hsl(220 20% 15% / 0.08),
+      0 0 0 1px hsl(220 16% 82% / 0.7);
+    --shadow-glow: 0 0 0 1px hsl(161 78% 26% / 0.15),
+      0 0 24px hsl(161 78% 26% / 0.08),
+      0 4px 12px hsl(220 20% 15% / 0.06);
+    --shadow-glow-hover: 0 0 0 1px hsl(161 78% 26% / 0.25),
+      0 0 32px hsl(161 78% 26% / 0.14),
+      0 8px 20px hsl(220 20% 15% / 0.08);
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: "Space Grotesk", system-ui, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  video {
+    border: none;
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+@layer components {
+  /* ── Typography ─────────────────────────────────────────────── */
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-accent);
+  }
+
+  .display-text {
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+  }
+
+  .label-text {
+    @apply text-xs font-semibold tracking-widest uppercase;
+  }
+
+  /* ── Layout ─────────────────────────────────────────────────── */
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* ── Cards ──────────────────────────────────────────────────── */
+
+  /* glass-card — primary surface, white glass */
+  .glass-card {
+    @apply rounded-xl border backdrop-blur-md;
+    border-color: hsl(220 14% 87% / 0.7);
+    background: hsl(0 0% 100% / 0.72);
+    box-shadow: var(--shadow-card);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .glass-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-hover);
+    border-color: hsl(220 14% 80% / 0.8);
+  }
+
+  /* enterprise-card — slightly cooler, more structured */
+  .enterprise-card {
+    @apply rounded-xl border backdrop-blur-sm;
+    border-color: hsl(220 16% 88% / 0.8);
+    background: hsl(0 0% 100% / 0.65);
+    box-shadow: 0 1px 3px hsl(220 20% 12% / 0.05),
+      0 6px 20px hsl(220 20% 12% / 0.05),
+      0 0 0 1px hsl(220 16% 90% / 0.5);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .enterprise-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px hsl(220 20% 12% / 0.08),
+      0 16px 40px hsl(220 20% 12% / 0.07),
+      0 0 0 1px hsl(161 78% 26% / 0.12);
+    border-color: hsl(161 78% 26% / 0.2);
+  }
+
+  /* ── Buttons ────────────────────────────────────────────────── */
+  .btn-glow {
+    box-shadow: var(--shadow-glow);
+    transition: box-shadow 0.2s ease, transform 0.15s ease;
+  }
+
+  .btn-glow:hover {
+    box-shadow: var(--shadow-glow-hover);
+    transform: translateY(-1px);
+  }
+
+  /* ── Borders & Dividers ─────────────────────────────────────── */
+  .glow-border {
+    @apply border border-primary/20;
+    box-shadow: 0 0 0 1px hsl(161 78% 26% / 0.08),
+      inset 0 1px 0 hsl(0 0% 100% / 0.5);
+  }
+
+  .section-divider {
+    @apply w-full border-0 h-px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(220 14% 82% / 0.8) 30%,
+      hsl(220 14% 82% / 0.8) 70%,
+      transparent
+    );
+  }
+
+  /* ── Backgrounds ────────────────────────────────────────────── */
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* ── Keyframe Animations ────────────────────────────────────── */
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translateY(-18px) rotate(180deg);
+    opacity: 0.7;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 1px hsl(161 78% 26% / 0.1),
+      0 0 8px hsl(161 78% 26% / 0.06);
+  }
+  50% {
+    box-shadow: 0 0 0 1px hsl(161 78% 26% / 0.2),
+      0 0 20px hsl(161 78% 26% / 0.12),
+      0 0 40px hsl(220 91% 52% / 0.06);
+  }
+}
+
+@keyframes grid-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* ── Animation Classes ──────────────────────────────────────── */
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3.5s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    hsl(220 14% 92%) 0%,
+    hsl(220 14% 96%) 50%,
+    hsl(220 14% 92%) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* ── Grid Pattern ────────────────────────────────────────────── */
+.grid-pattern {
+  background-image: linear-gradient(
+      hsl(220 91% 52% / 0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, hsl(161 78% 26% / 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: grid-move 20s linear infinite;
+}
+
+/* ── Carousel ────────────────────────────────────────────────── */
+.carousel-track {
+  display: flex;
+  width: max-content;
+  animation: scroll-left 30s linear infinite;
+}
+
+.carousel-track:hover {
+  animation-play-state: paused;
+}
