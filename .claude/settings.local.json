@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bun run build:*)",
+      "Bash(~/.bun/bin/bun run build:*)",
+      "Bash(npx vite:*)",
+      "Bash(bun add:*)",
+      "Bash(npm install:*)",
+      "Bash(dir:*)",
+      "Bash(npm run build:*)",
+      "Bash(find public -type f -exec ls -lh {} ;)",
+      "Bash(ls -lh \"c:\\\\Users\\\\rayen\\\\Desktop\\\\Sesit-Web\\\\sesit-smart-fields\\\\src\\\\assets\"/*.mp4 \"c:\\\\Users\\\\rayen\\\\Desktop\\\\Sesit-Web\\\\sesit-smart-fields\\\\src\\\\assets\\\\agroSelf\"/*.mp4 \"c:\\\\Users\\\\rayen\\\\Desktop\\\\Sesit-Web\\\\sesit-smart-fields\\\\src\\\\assets\\\\agroselfContent\"/*.mp4)",
+      "Read(//c/Users/rayen/Desktop/Sesit-Web/**)",
+      "Bash(find \"src/assets\" -name \"*.mp4\" -type f -exec ls -lh {} ;)",
+      "Bash(identify \"c:/Users/rayen/Desktop/Sesit-Web/sesit-smart-fields/public/sesit-icon.png\")",
+      "Bash(python3 -c \":*)",
+      "Bash(powershell -Command \"\\(Get-Item ''c:/Users/rayen/Desktop/Sesit-Web/sesit-smart-fields/public/sesit-icon.png''\\).Length\")",
+      "Bash(powershell -Command \"\\(Get-Item ''c:/Users/rayen/Desktop/Sesit-Web/sesit-smart-fields/src/assets/hero-bg.jpg''\\).Length\")"
+    ]
+  }
+}
